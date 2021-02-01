@@ -12,9 +12,8 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
-    inline-height: 18px;
   }
   button {
     border: none;
