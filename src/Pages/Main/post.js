@@ -28,10 +28,6 @@ function Post() {
                     {box1}
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
-                <ToDoBox></ToDoBox>
-                <ToDoBox></ToDoBox>
-                <ToDoBox></ToDoBox>
-                <ToDoBox></ToDoBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
                 </AddBox>
@@ -41,7 +37,6 @@ function Post() {
                     <input name="box2" value={box2} onChange={onChange} />
                     {box2}
                 </PostNameBox>
-                <ToDoBox></ToDoBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
                 </AddBox>
@@ -83,7 +78,7 @@ const PostBox = styled.div`
     background-color: rgb(219, 219, 219);
 `;
 
-const PostNameBox = styled.div`
+const PostNameBox = styled.button`
     width: 80%;
     height: 50px;
     display: flex;
