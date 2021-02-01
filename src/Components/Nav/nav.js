@@ -10,8 +10,7 @@ const Nav = () => {
                 <NavCenterText to="/">To Do List</NavCenterText>
             </NavCenterBox>
             <NavRightBox>
-                <SignUpBox>회원가입</SignUpBox>
-                <span>로그인</span>
+                <span>로그아웃</span>
             </NavRightBox>
         </NavContainer>
     );
@@ -55,10 +54,11 @@ const NavRightBox = styled.div`
     width: 250px;
     height: 100%;
     padding-top: 35px;
-`;
 
-const SignUpBox = styled.span`
-    margin-right: 15px;
+    span {
+        margin-right: 15px;
+        font-weight: 600;
+    }
 `;
 
 export default Nav;

@@ -74,7 +74,7 @@ const PostBox = styled.div`
     flex-direction: column;
     border-radius: 10px;
     height: fit-content;
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(230, 230, 230);
 `;
 
 const PostNameBox = styled.button`
