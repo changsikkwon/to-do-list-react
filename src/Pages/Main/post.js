@@ -2,12 +2,30 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function Post() {
+    const [inputs, setInputs] = useState({
+        box1: 'Back Log',
+        box2: 'To Do List',
+        box3: 'In Progress',
+        box4: 'Done',
+    });
+    console.log(inputs);
+
+    const { box1, box2, box3, box4 } = inputs;
+
+    const onChange = e => {
+        const { value, name } = e.target;
+        setInputs({
+            ...inputs,
+            [name]: value,
+        });
+    };
+
     return (
         <PostContainer>
             <PostBox>
                 <PostNameBox>
-                    <input name="box1" defaultValue="Back Log" />
-                    Back Log
+                    <input name="box1" value={box1} onChange={onChange} />
+                    {box1}
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
                 <ToDoBox></ToDoBox>
@@ -20,8 +38,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box2" defaultValue="To Do List" />
-                    To Do List
+                    <input name="box2" value={box2} onChange={onChange} />
+                    {box2}
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
                 <AddBox>
@@ -30,8 +48,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box3" defaultValue="In Progress" />
-                    In Progress
+                    <input name="box3" value={box3} onChange={onChange} />
+                    {box3}
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -39,8 +57,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box4" defaultValue="Done" />
-                    Done
+                    <input name="box4" value={box4} onChange={onChange} />
+                    {box4}
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -75,7 +93,7 @@ const PostNameBox = styled.div`
     font-size: 18px;
     visibility: visible;
     input {
-        visibility: hidden;
+        visibility: visible;
     }
 `;
 
