@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
     return (
         <NavContainer>
             <EmptyBox />
             <NavCenterBox>
-                <NavCenterText>To Do List</NavCenterText>
+                <NavCenterText to="/">To Do List</NavCenterText>
             </NavCenterBox>
             <NavRightBox>
                 <SignUpBox>회원가입</SignUpBox>
@@ -41,7 +42,7 @@ const NavCenterBox = styled.div`
     height: 100%;
 `;
 
-const NavCenterText = styled.span`
+const NavCenterText = styled(Link)`
     font-family: 'Carter One';
     font-size: 50px;
     font-weight: 700;

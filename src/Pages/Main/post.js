@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Post = () => {
+function Post() {
     return (
         <PostContainer>
             <PostBox>
                 <PostNameBox>
-                    <span>Back Log</span>
+                    <input name="box1" defaultValue="Back Log" />
+                    Back Log
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
                 <ToDoBox></ToDoBox>
@@ -19,7 +20,8 @@ const Post = () => {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <span>To Do List</span>
+                    <input name="box2" defaultValue="To Do List" />
+                    To Do List
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
                 <AddBox>
@@ -28,7 +30,8 @@ const Post = () => {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <span>In Progress</span>
+                    <input name="box3" defaultValue="In Progress" />
+                    In Progress
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -36,7 +39,8 @@ const Post = () => {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <span>Done</span>
+                    <input name="box4" defaultValue="Done" />
+                    Done
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -44,7 +48,7 @@ const Post = () => {
             </PostBox>
         </PostContainer>
     );
-};
+}
 
 const PostContainer = styled.div`
     display: flex;
@@ -57,6 +61,7 @@ const PostBox = styled.div`
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
+    height: fit-content;
     background-color: rgb(219, 219, 219);
 `;
 
@@ -68,7 +73,12 @@ const PostNameBox = styled.div`
     align-items: center;
     font-weight: 800;
     font-size: 18px;
+    visibility: visible;
+    input {
+        visibility: hidden;
+    }
 `;
+
 const ToDoBox = styled.button`
     border-radius: 10px;
     width: 90%;
