@@ -16,7 +16,7 @@ const Nav = () => {
     );
 };
 
-const NavContainer = styled.div`
+const NavContainer = styled.nav`
     position: sticky;
     top: 0;
     display: flex;
@@ -25,6 +25,7 @@ const NavContainer = styled.div`
     height: 80px;
     border-bottom: 1px solid rgb(219, 219, 219);
     margin-bottom: 50px;
+    background-color: white;
 `;
 
 const EmptyBox = styled.div`
