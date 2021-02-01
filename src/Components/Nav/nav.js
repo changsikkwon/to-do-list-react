@@ -27,7 +27,7 @@ const NavContainer = styled.div`
 `;
 
 const EmptyBox = styled.div`
-    width: 250px;
+    width: 200px;
     height: 100%;
 `;
 
