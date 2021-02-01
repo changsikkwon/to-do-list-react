@@ -24,6 +24,7 @@ const NavContainer = styled.div`
     width: 100%;
     height: 80px;
     border-bottom: 1px solid rgb(219, 219, 219);
+    margin-bottom: 50px;
 `;
 
 const EmptyBox = styled.div`
