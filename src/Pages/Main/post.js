@@ -8,7 +8,6 @@ function Post() {
         box3: 'In Progress',
         box4: 'Done',
     });
-    console.log(inputs);
 
     const { box1, box2, box3, box4 } = inputs;
 
