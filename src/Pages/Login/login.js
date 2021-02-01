@@ -29,7 +29,7 @@ const SignIn = () => {
         <LoginContainer>
             <LogoLoginBox>
                 <LogoBox>
-                    <LogoText>To Do List</LogoText>
+                    <span>To Do List</span>
                 </LogoBox>
                 <LoginBox>
                     <UserBox>
@@ -49,7 +49,7 @@ const SignIn = () => {
 
 const LoginContainer = styled.div`
     width: 100%;
-    margin-top: 15%;
+    margin-top: 13%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -71,9 +71,6 @@ const LogoBox = styled.div`
     justify-content: center;
     align-items: center;
     width: 250px;
-`;
-
-const LogoText = styled.span`
     font-family: 'Carter One';
     font-size: 50px;
     font-weight: 700;
@@ -92,7 +89,7 @@ const UserBox = styled.div`
     align-items: center;
     border: 1px solid rgba(var(--ca6, 219, 219, 219), 1);
     border-radius: 5px;
-    height: 38px;
+    height: 40px;
     width: 270px;
 `;
 
@@ -110,9 +107,7 @@ const LoginBtnBox = styled.div`
     margin-right: 40px;
     margin-top: 8px;
     justify-content: center;
-    align-content: stretch;
     display: flex;
-    position: relative;
     justify-content: center;
     width: 270px;
     border: 1px solid transparent;

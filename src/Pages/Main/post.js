@@ -23,8 +23,8 @@ function Post() {
         <PostContainer>
             <PostBox>
                 <PostNameBox>
-                    <input name="box1" value={box1} onChange={onChange} />
                     {box1}
+                    <input name="box1" value={box1} onChange={onChange} />
                 </PostNameBox>
                 <ToDoBox></ToDoBox>
                 <AddBox>
@@ -33,8 +33,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box2" value={box2} onChange={onChange} />
                     {box2}
+                    <input name="box2" value={box2} onChange={onChange} />
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -42,8 +42,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box3" value={box3} onChange={onChange} />
                     {box3}
+                    <input name="box3" value={box3} onChange={onChange} />
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
@@ -51,8 +51,8 @@ function Post() {
             </PostBox>
             <PostBox>
                 <PostNameBox>
-                    <input name="box4" value={box4} onChange={onChange} />
                     {box4}
+                    <input name="box4" value={box4} onChange={onChange} />
                 </PostNameBox>
                 <AddBox>
                     <AddBtn>➕ 추가하기</AddBtn>
