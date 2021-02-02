@@ -25,6 +25,10 @@ const SignIn = () => {
         }
     };
 
+    const clickSignUp = () => {
+        history.push({ pathname: '/signup' });
+    };
+
     return (
         <LoginContainer>
             <LogoLoginBox>
@@ -41,6 +45,9 @@ const SignIn = () => {
                     <LoginBtnBox>
                         <LoginBtn onClick={() => clickLogin()}>로그인</LoginBtn>
                     </LoginBtnBox>
+                    <SignUpBox>
+                        <SignUpBtn onClick={() => clickSignUp()}>가입하기</SignUpBtn>
+                    </SignUpBox>
                 </LoginBox>
             </LogoLoginBox>
         </LoginContainer>
@@ -74,10 +81,13 @@ const LogoBox = styled.div`
     font-family: 'Carter One';
     font-size: 50px;
     font-weight: 700;
+    span {
+        cursor: default;
+    }
 `;
 
 const LoginBox = styled.div`
-    margin-top: 60px;
+    margin-top: 40px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -123,6 +133,16 @@ const LoginBtn = styled.button`
     font-size: 15px;
     text-rendering: auto;
     color: rgba(var(--eca, 255, 255, 255), 1);
+`;
+
+const SignUpBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+`;
+const SignUpBtn = styled.button`
+    font-weight: 600;
 `;
 
 export default SignIn;
