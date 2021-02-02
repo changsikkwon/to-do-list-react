@@ -17,7 +17,7 @@ const SignIn = () => {
     const history = useHistory();
 
     const clickLogin = () => {
-        if (account.length > 3 && password.length > 8) {
+        if (account.length > 3 && password.length > 5) {
             alert('로그인 성공!');
             history.push({ pathname: '/' });
         } else {
