@@ -1,28 +1,43 @@
+import { useMutation } from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import { AUTH_USER } from '../../Query';
 
 const SignIn = () => {
-    const [account, setAccount] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({
+        account: '',
+        password: '',
+    });
 
-    const onChangeAccount = e => {
-        setAccount(e.target.value);
+    const onChangeUser = e => {
+        const { value, name } = e.target;
+        setUser({
+            ...user,
+            [name]: value,
+        });
     };
 
-    const onChangePassword = e => {
-        setPassword(e.target.value);
-    };
+    const { account, password } = user;
 
     const history = useHistory();
 
+    const [authUser] = useMutation(AUTH_USER);
+
     const clickLogin = () => {
         if (account.length > 3 && password.length > 5) {
-            alert('로그인 성공!');
-            history.push({ pathname: '/' });
-        } else {
-            alert('로그인 실패!');
+            authUser({ variables: user })
+                .then(res => {
+                    alert('로그인 성공!');
+                    console.log(res);
+                    if (res.data.authUser.accessToken) {
+                        localStorage.setItem('accessToken', res.data.authUser.accessToken);
+                        history.push({ pathname: '/' });
+                    }
+                })
+                .catch(err => {
+                    alert(err.message);
+                });
         }
     };
 
@@ -38,10 +53,10 @@ const SignIn = () => {
                 </LogoBox>
                 <LoginBox>
                     <UserBox>
-                        <InputUser name="account" value={account} onChange={onChangeAccount} placeholder="사용자" />
+                        <InputUser name="account" value={account} onChange={onChangeUser} placeholder="사용자" />
                     </UserBox>
                     <UserBox>
-                        <InputUser name="password" value={password} onChange={onChangePassword} placeholder="비밀번호" />
+                        <InputUser type="password" name="password" value={password} onChange={onChangeUser} placeholder="비밀번호" />
                     </UserBox>
                     <LoginBtnBox>
                         <LoginBtn onClick={() => clickLogin()}>로그인</LoginBtn>

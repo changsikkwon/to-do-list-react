@@ -34,8 +34,7 @@ const SignUp = () => {
 
     const [createUser] = useMutation(CREATE_USER);
 
-    console.log(user);
-    const handleClick = () => {
+    const onClick = () => {
         createUser({ variables: user })
             .then(res => {
                 alert('회원가입 성공!');
@@ -102,7 +101,7 @@ const SignUp = () => {
                         />
                     </UserBox>
                     <SignUpBtnBox>
-                        <SignUpBtn onClick={() => handleClick()}>가입하기</SignUpBtn>
+                        <SignUpBtn onClick={() => onClick()}>가입하기</SignUpBtn>
                     </SignUpBtnBox>
                 </SignUpBox>
             </LogoSignUpBox>
