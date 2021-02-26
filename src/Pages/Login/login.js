@@ -29,7 +29,6 @@ const SignIn = () => {
             authUser({ variables: user })
                 .then(res => {
                     alert('로그인 성공!');
-                    console.log(res);
                     if (res.data.authUser.accessToken) {
                         localStorage.setItem('accessToken', res.data.authUser.accessToken);
                         history.push({ pathname: '/' });
