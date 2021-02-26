@@ -1,19 +1,25 @@
+import { useMutation } from '@apollo/react-hooks';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
+import { CREATE_USER } from '../../Query';
 
 const SignUp = () => {
-    const [account, setAccount] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({
+        account: '',
+        password: '',
+    });
     const [rePassword, setRePassword] = useState('');
     const [activeText, setActiveText] = useState([]);
 
-    const onChangeAccount = e => {
-        setAccount(e.target.value);
-    };
+    const { account, password } = user;
 
-    const onChangePassword = e => {
-        setPassword(e.target.value);
+    const onChangeUser = e => {
+        const { value, name } = e.target;
+        setUser({
+            ...user,
+            [name]: value,
+        });
     };
 
     const onChangeRePassword = e => {
@@ -26,9 +32,18 @@ const SignUp = () => {
         setActiveText([...activeText, e.target.name]);
     };
 
-    const clickSignUp = () => {
-        alert('회원가입 성공!');
-        history.push({ pathname: '/' });
+    const [createUser] = useMutation(CREATE_USER);
+
+    console.log(user);
+    const handleClick = () => {
+        createUser({ variables: user })
+            .then(res => {
+                alert('회원가입 성공!');
+                history.push({ pathname: '/' });
+            })
+            .catch(err => {
+                alert(err.message);
+            });
     };
 
     return (
@@ -49,7 +64,7 @@ const SignUp = () => {
                             type="text"
                             name="account"
                             value={account}
-                            onChange={onChangeAccount}
+                            onChange={onChangeUser}
                             onFocus={e => activeCheck(e)}
                             placeholder="아이디는 4자 이상 입력 해주세요."
                         />
@@ -65,7 +80,7 @@ const SignUp = () => {
                             type="password"
                             name="password"
                             value={password}
-                            onChange={onChangePassword}
+                            onChange={onChangeUser}
                             onFocus={e => activeCheck(e)}
                             placeholder="비밀번호는 6자 이상 입력 해주세요."
                         />
@@ -87,7 +102,7 @@ const SignUp = () => {
                         />
                     </UserBox>
                     <SignUpBtnBox>
-                        <SignUpBtn onClick={() => clickSignUp()}>가입하기</SignUpBtn>
+                        <SignUpBtn onClick={() => handleClick()}>가입하기</SignUpBtn>
                     </SignUpBtnBox>
                 </SignUpBox>
             </LogoSignUpBox>
