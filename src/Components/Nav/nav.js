@@ -10,7 +10,7 @@ const Nav = () => {
                 <NavCenterText to="/">To Do List</NavCenterText>
             </NavCenterBox>
             <NavRightBox>
-                <span>로그아웃</span>
+                <NavRightText to="/signin">로그아웃</NavRightText>
             </NavRightBox>
         </NavContainer>
     );
@@ -54,11 +54,11 @@ const NavRightBox = styled.div`
     width: 250px;
     height: 100%;
     padding-top: 35px;
+`;
 
-    span {
-        margin-right: 15px;
-        font-weight: 600;
-    }
+const NavRightText = styled(Link)`
+    margin-right: 15px;
+    font-weight: 600;
 `;
 
 export default Nav;
