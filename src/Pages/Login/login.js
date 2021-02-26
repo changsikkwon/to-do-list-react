@@ -25,19 +25,22 @@ const SignIn = () => {
     const [authUser] = useMutation(AUTH_USER);
 
     const clickLogin = () => {
-        if (account.length > 3 && password.length > 5) {
-            authUser({ variables: user })
-                .then(res => {
-                    alert('로그인 성공!');
-                    if (res.data.authUser.accessToken) {
-                        localStorage.setItem('accessToken', res.data.authUser.accessToken);
-                        history.push({ pathname: '/' });
-                    }
-                })
-                .catch(err => {
-                    alert(err.message);
-                });
-        }
+        authUser({ variables: user })
+            .then(res => {
+                alert('로그인 성공!');
+                if (res.data.authUser.accessToken) {
+                    localStorage.setItem('accessToken', res.data.authUser.accessToken);
+                    history.push({ pathname: '/' });
+                }
+            })
+            .catch(err => {
+                console.log(err.message);
+                if (err.message === 'GraphQL error: User matching query does not exist.') {
+                    alert('잘못된 아이디 입니다!');
+                } else if (err.message === 'GraphQL error: Invalid_Password') {
+                    alert('잘몬된 비밀번호 입니다!');
+                }
+            });
     };
 
     const clickSignUp = () => {

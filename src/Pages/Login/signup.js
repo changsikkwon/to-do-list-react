@@ -198,12 +198,12 @@ const IdSuccess = styled(InputCheck)`
 `;
 
 const PasswordFail = styled(InputCheck)`
-    display: ${props => (props.activeText.includes('password') && props.password.length < 6 ? 'relative' : 'none')};
+    display: ${props => (props.activeText.includes('password') && props.password.length < 8 ? 'relative' : 'none')};
     color: #ff0000;
 `;
 
 const PasswordSuccess = styled(InputCheck)`
-    display: ${props => (props.activeText.includes('password') && props.password.length > 5 ? 'relative' : 'none')};
+    display: ${props => (props.activeText.includes('password') && props.password.length > 7 ? 'relative' : 'none')};
     color: #0da94a;
 `;
 
