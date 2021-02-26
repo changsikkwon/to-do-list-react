@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
+import { AUTH_USER } from '../../Query';
 
 const SignIn = () => {
     const [account, setAccount] = useState('');
